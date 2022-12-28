@@ -3,7 +3,8 @@ from .models import *
 # Create your views here.
 def home(request):
     views = {}
-    views['service'] = Service.objects.all()
+    views['feedbacks'] = Feedback.objects.all()
+    views['services'] = Service.objects.all()
     return render(request, 'index.html', views)
 
 def about(request):
@@ -11,7 +12,7 @@ def about(request):
 
 def contact(request):
     views = {}
-    views['infos'] = Information.objects.all()
+    views["infos"] = Information.objects.all()
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
